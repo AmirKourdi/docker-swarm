@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx/config:/etc/nginx/conf.d
+      - ./nginx/log:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - net1
+networks:
+  net1:
+    driver: bridge
