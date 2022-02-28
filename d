@@ -19,10 +19,3 @@
       name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
       update_cache: yes
 
-  - name: Install prerequisites for docker-compose
-    apt:
-      name: ['python3-pip', 'python3-setuptools', 'virtualenv']
-
-  - name: Install docker-compose
-    pip:
-      name: docker-compose
