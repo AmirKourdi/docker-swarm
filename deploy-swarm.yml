@@ -1,16 +1,16 @@
 ---
-– name: Install common packages
+- name: Install common packages
 hosts: swarm
 roles:
-– common
-– docker
+- common
+- docker
 
-– name: Configure Manager
+- name: Configure Manager
 hosts: swarm-managers
 roles:
-– dockermanager
+- dockermanager
 
 – name: Configure Workers
 hosts: swarm-workers
 roles:
-– dockerworker
+- dockerworker
