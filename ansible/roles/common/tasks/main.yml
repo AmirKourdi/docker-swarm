@@ -6,7 +6,7 @@
 
 - name: upgrade all packages
   become: true
-  apt: name=* state=latest
+  apt: name=*
   tags: [common]
 
 - name: Disable selinux
