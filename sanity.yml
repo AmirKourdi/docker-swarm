@@ -36,9 +36,9 @@
     - debug:
             var: space
 
-   - name: find the latest file
-      find: paths= /etc/fstab
-            file_type=file
-            age=-24H
-            age_stamp=mtime
-      register: files
+    - name: find the latest file
+       find: paths= /etc/fstab
+             file_type=file
+             age=-24H
+             age_stamp=mtime
+       register: files
