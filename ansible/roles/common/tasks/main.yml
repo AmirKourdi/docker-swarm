@@ -6,7 +6,7 @@
 
 - name: upgrade all packages
   become: true
-  yum: name=* state=latest
+  apt: name=* state=latest
   tags: [common]
 
 - name: Disable selinux
@@ -14,30 +14,23 @@
   become: true
   tags: [common]
 
+
 - name: install unzip
   become: true
-  yum: name=unzip
-  tags: [common]
-
-- name: Enable the EPEL repository definitions.
-  become: true
-  yum: pkg=epel-release
+  apt: name=unzip
   tags: [common]
 
 - name: Install python setup tools
   become: true
-  yum: name=python-setuptools
+  apt: name=python-setuptools
   tags: [common]
 
 - name: Install Pypi
   become: true
-  easy_install: name=pip
+  apt: name=pip
   tags: [common]
 
 - name: install git
   become: true
-  yum:
-    name:
-      - git
-    state: present
-    tags: [common]
+  apt: name=git
+  tags: [common]
