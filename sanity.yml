@@ -1,16 +1,12 @@
-
 ---
 - hosts: localhost
   tasks:
-  - name: checking service status
-    hosts: www.linuxfoundation.org
-    tasks:
-    - name: Check for users
+    - name: Check for user
       with_items:
-        - user
-        - bar
+        - otorio
+      ignore_errors: yes
       changed_when: false
-      command: grep {{ item }} -q /etc/passwd  
+      command: grep {{ item }} -q /etc/passwd
 
     - name: Disk usage from command module
       command: df -h
@@ -26,19 +22,18 @@
       - containerd.io
       register: result
       ignore_errors: yes
-    - name: showing report
+    - name: show serivces status report
       debug:
        var: result
 
-    - name: Disk usage from command module
+    - name: Showing  Disk usage
       command: df -h
       register: space
     - debug:
             var: space
 
-    - name: find the latest file
-       find: paths= /etc/fstab
-             file_type=file
-             age=-24H
-             age_stamp=mtime
-       register: files
+    - name: Recursively find /tmp files older than 2 days
+      find:
+        paths: /tmp
+        age: 2d
+        recurse: yes
