@@ -1,7 +1,7 @@
 ---
-- name: Clean yum
+- name: Clean apt
   become: true
-  shell: yum clean all
+  shell: apt clean all
   tags: [common]
 
 - name: upgrade all packages
