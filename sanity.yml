@@ -32,8 +32,11 @@
     - debug:
             var: space
 
-    - name: Recursively find /tmp files older than 2 days
+    - name: Print fstab if it was changed in last day
       find:
-        paths: /tmp
-        age: 2d
-        recurse: yes
+        paths: /etc/
+        age: 1d
+        patterns: 'fstab'
+      register: files
+    - debug:
+            var: files
