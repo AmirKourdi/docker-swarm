@@ -16,10 +16,10 @@
   with_items:
     - "[dockerrepo]"
     - "name=Docker Repository"
-    - "baseurl=https://yum.dockerproject.org/repo/main/centos/7/"
+    - "baseurl=https://apt.dockerproject.org/repo/main/centos/7/"
     - "enabled=1"
     - "gpgcheck=1"
-    - "gpgkey=https://yum.dockerproject.org/gpg"
+    - "gpgkey=https://apt.dockerproject.org/gpg"
   tags: [docker]
 
 - name: Install Docker
@@ -30,13 +30,13 @@
 - name: enable sysv dockerd service
   become: true
   service:
-    name: docker.service
+    name: docker
     enabled: yes
   tags: [docker]
 
 - name: Start service
   become: true
   service:
-    name: docker.service
+    name: docker
     state: started
   tags: [docker]
