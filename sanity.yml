@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Check for user
+    - name: Check if user exsit
       with_items:
         - otorio
       ignore_errors: yes
