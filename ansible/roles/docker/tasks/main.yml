@@ -25,7 +25,7 @@
 
 - name: Install Docker
   become: true
-  yum: pkg=docker-engine state=present
+  apt: pkg=docker-engine state=present
   tags: [docker]
 
 - name: enable sysv dockerd service
