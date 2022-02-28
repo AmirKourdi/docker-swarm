@@ -9,12 +9,6 @@
   apt: name=*
   tags: [common]
 
-- name: Disable selinux
-  selinux: state=disabled
-  become: true
-  tags: [common]
-
-
 - name: install unzip
   become: true
   apt: name=unzip
