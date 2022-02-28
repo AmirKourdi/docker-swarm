@@ -1,41 +1,44 @@
+
 ---
-- name: checking service status
-  hosts: www.linuxfoundation.org
+- hosts: localhost
   tasks:
-  - name: Check for users
-    with_items:
-      - user
-      - bar
-    changed_when: false
-    command: grep {{ item }} -q /etc/passwd  
-    
-  - name: Disk usage from command module
-    command: df -h
-    register: space
-  - debug:
-          var: space
-
   - name: checking service status
-    command: systemctl status "{{ item }}"
-    with_items:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
-    register: result
-    ignore_errors: yes
-  - name: showing report
-    debug:
-     var: result
+    hosts: www.linuxfoundation.org
+    tasks:
+    - name: Check for users
+      with_items:
+        - user
+        - bar
+      changed_when: false
+      command: grep {{ item }} -q /etc/passwd  
 
-  - name: Disk usage from command module
-    command: df -h
-    register: space
-  - debug:
-          var: space
+    - name: Disk usage from command module
+      command: df -h
+      register: space
+    - debug:
+            var: space
 
- - name: find the latest file
-    find: paths= /etc/fstab
-          file_type=file
-          age=-24H
-          age_stamp=mtime
-    register: files
+    - name: checking service status
+      command: systemctl status "{{ item }}"
+      with_items:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      register: result
+      ignore_errors: yes
+    - name: showing report
+      debug:
+       var: result
+
+    - name: Disk usage from command module
+      command: df -h
+      register: space
+    - debug:
+            var: space
+
+   - name: find the latest file
+      find: paths= /etc/fstab
+            file_type=file
+            age=-24H
+            age_stamp=mtime
+      register: files
