@@ -4,8 +4,7 @@
   pip:
     name: 
        - docker-py
-    extra_args: –ignore-installed
-    tags: [docker]
+  tags: [docker]
  
 
 - name: Update docker repo
