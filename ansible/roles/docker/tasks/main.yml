@@ -2,10 +2,9 @@
 - name: Install docker-py
   become: true
   pip:
-    name: 
+    name:
        - docker-py
   tags: [docker]
- 
 
 - name: Update docker repo
   become: true
@@ -16,15 +15,15 @@
   with_items:
     - "[dockerrepo]"
     - "name=Docker Repository"
-    - "baseurl=https://apt.dockerproject.org/repo/main/centos/7/"
+    - "baseurl=https://download.docker.com/linux/ubuntu"
     - "enabled=1"
     - "gpgcheck=1"
-    - "gpgkey=https://apt.dockerproject.org/gpg"
+    - "gpgkey=https://download.docker.com/linux/ubuntu/gpg"
   tags: [docker]
 
 - name: Install Docker
   become: true
-  apt: pkg=docker-engine state=present
+  yum: pkg=docker-engine state=present
   tags: [docker]
 
 - name: enable sysv dockerd service
