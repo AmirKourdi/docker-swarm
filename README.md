@@ -3,6 +3,10 @@
 Deploy Docker Swarm (Master, Workers) - Ubuntu Only:
 
 ```bash
+Edit inventory/hosts.ini to mach the ENV that you want to deploy
+```
+
+```bash
 cd ansible
 ansible-playbook install_docker_ce.yml -i inventory/hosts.ini
 ansible-playbook deploy-swarm.yml.yml -i inventory/hosts.ini
@@ -43,12 +47,12 @@ The image are created:
 
 
 
-### Nginx as reverse proxy
+### Nginx 
 
-Create overlay network and don't expose any applications' ports, use nginx to handle proxying instead:
+Create  network
 
 ```bash
-# create overlay network
+# create network
 docker network create -d overlay swarm-net --attachable
 docker network ls
 
@@ -63,7 +67,7 @@ docker service ls
 docker ps
 
 
-Shutdown everything:
+Destroy everything:
 
 ```bash
 docker service rm nginx-swarm
