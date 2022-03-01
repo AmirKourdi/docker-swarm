@@ -1,5 +1,3 @@
-# This 
-
 ## Initial setup
 
 Deploy Docker Swarm (Master, Workers) - Ubuntu Only:
@@ -78,4 +76,9 @@ docker network rm swarm-net
 
 # remove docker node
 docker swarm leave --force
+```
+
+# Sanity check on a host (localhost)
+```bash
+ansible-playbook sanity.yml
 ```
