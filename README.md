@@ -1,10 +1,12 @@
 ## Initial setup
 
-Deploy Docker Swarm (Master, Workers) - Ubuntu Only:
+Edit inventory/hosts.ini to mach the ENV that you want to deploy
 
 ```bash
-Edit inventory/hosts.ini to mach the ENV that you want to deploy
+vi inventory/hosts.ini 
 ```
+
+Deploy Docker Swarm (Master, Workers) - Ubuntu Only:
 
 ```bash
 cd ansible
