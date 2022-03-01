@@ -1,11 +1,13 @@
+# This 
+
 ## Initial setup
 
-Deploy Docker Swarm (Master, Workers):
+Deploy Docker Swarm (Master, Workers) - Ubuntu Only:
 
 ```bash
 cd ansible
 ansible-playbook install_docker_ce.yml -i inventory/hosts.ini
-ansible-playbook install_docker_ce.yml -i inventory/hosts.ini
+ansible-playbook deploy-swarm.yml.yml -i inventory/hosts.ini
 ```
 
 Create a new swarm:
