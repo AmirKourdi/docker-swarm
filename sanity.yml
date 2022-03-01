@@ -3,6 +3,7 @@
   tasks:
     - name: Check if user exist
       with_items:
+        - akourdi
         - otorio
       ignore_errors: yes
       changed_when: false
@@ -15,11 +16,9 @@
             var: space
 
     - name: checking service status
-      command: systemctl status "{{ item }}"
+      command: service "{{ item }}" status
       with_items:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
+      - docker
       register: result
       ignore_errors: yes
     - name: show serivces status report
