@@ -3,6 +3,13 @@
 Create a new swarm:
 
 ```bash
+cd ansible
+ansible-playbook install_dockerce_dockercompose.yml -i inventory/hosts.ini
+```
+
+Create a new swarm:
+
+```bash
 docker swarm init
 ```
 
