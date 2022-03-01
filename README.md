@@ -84,7 +84,7 @@ docker network rm swarm-net
 docker swarm leave --force
 ```
 
-# Sanity check on a host (localhost)
+# Sanity check of a host (localhost)
 ```bash
 ansible-playbook sanity.yml
 ```
