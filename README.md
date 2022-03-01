@@ -33,8 +33,8 @@ docker swarm leave
 ```
 
 
-# build nginx reverse proxy image
-docker build --tag akourdi/nginx nginx/            # build custom nginx image
+# build nginx image
+docker build --tag akourdi/nginx nginx/       
 ```
 
 Verify build image:
